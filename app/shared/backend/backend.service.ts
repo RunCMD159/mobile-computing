@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
+import {Config} from "../config/config";
 
 @Injectable()
 export class BackendService {
@@ -14,7 +15,7 @@ export class BackendService {
      * @returns {Observable<any>}
      */
     public get(path: string): Observable<any> {
-        return this._http.get(path);
+        return this._http.get(this.buildPath(path));
     }
 
     /**
@@ -24,7 +25,7 @@ export class BackendService {
      * @returns {Observable<any>}
      */
     public put(path: string, body: any): Observable<any> {
-        return this._http.put(path, body);
+        return this._http.put(this.buildPath(path), body);
     }
 
     /**
@@ -34,7 +35,7 @@ export class BackendService {
      * @returns {Observable<any>}
      */
     public post(path: string, body: any): Observable<any> {
-        return this._http.post(path, body);
+        return this._http.post(this.buildPath(path), body);
     }
 
     /**
@@ -44,6 +45,10 @@ export class BackendService {
      * @returns {Observable<any>}
      */
     public delete(path: string, id: any): Observable<any> {
-        return this._http.delete(path + '/' + id);
+        return this._http.delete(this.buildPath(path) + id);
+    }
+
+    private buildPath(path: string): string {
+        return Config.apiUrl + path;
     }
 }
