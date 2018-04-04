@@ -4,9 +4,8 @@ import { UserService } from "../shared/users/user.service";
 
 @Component({
   selector: "ns-login",
-  moduleId: module.id,
-  templateUrl: "login.component.html",
-  styleUrls: ["login.component.css"]
+  templateUrl: "login/login.component.html",
+  styleUrls: ["login/login.component.css"]
   
 })
 export class LoginComponent {

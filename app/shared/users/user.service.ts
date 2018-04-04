@@ -7,29 +7,25 @@ import "rxjs/add/operator/map";
 
 import { User } from "./user.model";
 import { Config } from "../config/config";
+import { BackendService } from '../backend/backend.service';
 
 @Injectable()
 export class UserService {
-    constructor(private http: Http) {}
+    constructor(private backendService: BackendService) {}
 
   register(user: User) {
-    return this.http.post(
-        Config.apiUrl + "user/" + Config.appKey,
+    return this.backendService.post(
+        "user/" + Config.appKey,
         JSON.stringify({
             username: user.email,
             email: user.email,
             password: user.password
         }),
-        { headers: this.getCommonHeaders()}
+
     )
     .catch (this.handleErrors);
   }
-  getCommonHeaders(){
-      let headers = new Headers();
-      headers.append("Content-Type", "application/json");
-      headers.append("Authorization", Config.authHeader);
-      return headers;
-  }
+
   handleErrors(error: Response){
       console.log(JSON.stringify(error.json()));
       return Observable.throw(error);

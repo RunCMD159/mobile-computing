@@ -5,8 +5,7 @@ import {BackendService} from "../shared/backend/backend.service";
 
 @Component({
     selector: "Home",
-    moduleId: module.id,
-    templateUrl: "./home.component.html"
+    templateUrl: "home/home.component.html"
 })
 export class HomeComponent implements OnInit {
     /* ***********************************************************

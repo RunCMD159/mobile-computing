@@ -1,7 +1,8 @@
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs/Observable";
-import {Config} from "../config/config";
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable } from "rxjs/Observable";
+import { Config } from "../config/config";
+import { Headers } from '@angular/http';
 
 @Injectable()
 export class BackendService {
@@ -35,7 +36,7 @@ export class BackendService {
      * @returns {Observable<any>}
      */
     public post(path: string, body: any): Observable<any> {
-        return this._http.post(this.buildPath(path), body);
+        return this._http.post(this.buildPath(path), body, {headers: this.getCommonHeaders()});
     }
 
     /**
@@ -50,5 +51,12 @@ export class BackendService {
 
     private buildPath(path: string): string {
         return Config.apiUrl + path;
+    }
+
+    private getCommonHeaders(): HttpHeaders {
+        let headers = new HttpHeaders();
+        headers.append("Content-Type", "application/json");
+        headers.append("Authorization", Config.authHeader);
+        return headers;
     }
 }
