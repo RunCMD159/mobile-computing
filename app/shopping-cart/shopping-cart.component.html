@@ -2,5 +2,16 @@
 <!-- Your UI components go here -->
 
 <StackLayout tkDrawerContent>
-    <Button [nsRouterLink]="['/overview']" text="GOTO Overview"></Button>
+    <ListView [items]="cart?.entries" class="list-group">
+        <ng-template let-entry="item" let-i="index" let-odd="odd" let-even="even">
+            <StackLayout class="list-group-item">
+                <Label [text]="entry.article.name"></Label>
+                <Label [text]="entry.article.price | currency: '€ ': true"></Label>
+                <Label [text]="'Anzahl: ' + entry.quantity"></Label>
+                <Button (tap)="increaseQuantity(entry)" text="+"></Button>
+                <Button (tap)="decreaseQuantity(entry)" text="-"></Button>
+            </StackLayout>
+        </ng-template>
+    </ListView>
+    <Label class="h3 p-15" [text]="'Gesamtsumme: ' + (cart?.totalSum | currency: '€ ': true)" textWrap="true"></Label>
 </StackLayout>
