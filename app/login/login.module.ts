@@ -6,6 +6,7 @@ import { LoginComponent } from "./login.component";
 import { UserService } from "../shared/users/user.service";
 import {NativeScriptRouterModule} from "nativescript-angular";
 import {routes} from "../app-routing.module";
+import { LoginService } from "./login.service";
 
 @NgModule({
     imports: [
@@ -17,7 +18,7 @@ import {routes} from "../app-routing.module";
     declarations: [
         LoginComponent
     ],
-    providers:[UserService],
+    providers:[UserService, LoginService],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
