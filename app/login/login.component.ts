@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import {User} from '../shared/users/user.model';
 import { UserService } from "../shared/users/user.service";
+import { LoginService } from "./login.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "ns-login",
@@ -12,7 +14,7 @@ export class LoginComponent {
   user: User;
   isLoggingIn = true;
 
-  constructor(private userService: UserService) {
+  constructor(private router: Router, private loginService: LoginService, private userService: UserService) {
     this.user = new User();
   }
   submit(){
@@ -24,7 +26,11 @@ export class LoginComponent {
     }
   }
   login() {
-
+    this.loginService.login(this.user)
+      .subscribe(
+        () => this.router.navigate(["/overview"]),
+        (error) => alert("Unfortunately we could not find your account.")
+      );
   }
   signUp() {
     this.userService.register(this.user)
