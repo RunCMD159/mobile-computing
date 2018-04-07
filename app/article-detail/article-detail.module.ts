@@ -1,8 +1,8 @@
-import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptCommonModule } from "nativescript-angular/common";
+import {NgModule, NO_ERRORS_SCHEMA} from "@angular/core";
+import {NativeScriptCommonModule} from "nativescript-angular/common";
 
-import { SharedModule } from "../shared/shared.module";
-import { OverviewComponent } from "./overview.component";
+import {SharedModule} from "../shared/shared.module";
+import {ArticleDetailComponent} from "./article-detail.component";
 import {routes} from "../app-routing.module";
 import {NativeScriptRouterModule} from "nativescript-angular";
 
@@ -14,10 +14,11 @@ import {NativeScriptRouterModule} from "nativescript-angular";
         NativeScriptRouterModule.forRoot(routes)
     ],
     declarations: [
-        OverviewComponent
+        ArticleDetailComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
 })
-export class OverviewModule { }
+export class ArticleDetailModule {
+}

@@ -1,8 +1,8 @@
-<ActionBar title="Wayna Pawiasek" class="action-bar"></ActionBar>
+<ActionBar title="Artikelübersicht" class="action-bar"></ActionBar>
 <!-- Your UI components go here -->
 
 <StackLayout tkDrawerContent>
-  
-   
-
+    <Button [nsRouterLink]="['/article-detail']" text="GOTO Article detail"></Button>
+    <Button [nsRouterLink]="['/shopping-cart']" text="GOTO Shopping cart"></Button>
+    <Button [nsRouterLink]="['/new-article']" text="GOTO NEW ARTICLE"></Button>
 </StackLayout>

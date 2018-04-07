@@ -1,20 +1,16 @@
-import { NgModule } from "@angular/core";
-import { Routes } from "@angular/router";
-import { NativeScriptRouterModule } from "nativescript-angular/router";
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { BrowseComponent } from './browse/browse.component';
-import { SearchComponent } from './search/search.component';
-import { FeaturedComponent } from './featured/featured.component';
-import { SettingsComponent } from './settings/settings.component';
+import {Routes} from "@angular/router";
+import {LoginComponent} from './login/login.component';
+import {NewArticleComponent} from "./new-article/new-article.component";
+import {OverviewComponent} from "./overview/overview.component";
+import {ShoppingCartComponent} from "./shopping-cart/shopping-cart.component";
+import {ArticleDetailComponent} from "./article-detail/article-detail.component";
 
 export const routes: Routes = [
     {path: "", redirectTo: "/login", pathMatch: "full"},
     {path: "login", component: LoginComponent},
-    // {path: "home", component: HomeComponent},
-    // {path: "browse", component: BrowseComponent},
-    // {path: "search", component: SearchComponent},
-    // {path: "featured", component: FeaturedComponent},
-    // {path: "settings", component: SettingsComponent}
+    {path: "new-article", component: NewArticleComponent},
+    {path: "article-detail", component: ArticleDetailComponent},
+    {path: "overview", component: OverviewComponent},
+    {path: "shopping-cart", component: ShoppingCartComponent},
 ];
 
