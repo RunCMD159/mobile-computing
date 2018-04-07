@@ -1,3 +1,17 @@
 # Created by .ignore support plugin (hsz.mobi)
 node_modules
 platforms
+lib
+hooks
+dist
+*.js
+*.map
+*.log
+.idea/*
+!.idea/runConfigurations
+!.idea/modules.xml
+*.iws
+*.iml
+*.ipr
+/out/
+.idea_modules/
