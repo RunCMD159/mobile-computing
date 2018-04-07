@@ -7,12 +7,14 @@ import {MyDrawerComponent} from "./my-drawer/my-drawer.component";
 import {BackendService} from "./backend/backend.service";
 import {LocalStorageService} from "./local-storage/local-storage.service";
 import {NativeScriptHttpClientModule} from "nativescript-angular/http-client";
+import { NativeScriptFormsModule } from "nativescript-angular";
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
         NativeScriptUISideDrawerModule,
-        NativeScriptHttpClientModule
+        NativeScriptHttpClientModule,
+        NativeScriptFormsModule
     ],
     declarations: [
         MyDrawerComponent,
@@ -20,7 +22,8 @@ import {NativeScriptHttpClientModule} from "nativescript-angular/http-client";
     ],
     exports: [
         MyDrawerComponent,
-        NativeScriptUISideDrawerModule
+        NativeScriptUISideDrawerModule,
+        NativeScriptFormsModule
     ],
     providers: [BackendService, LocalStorageService],
     schemas: [
