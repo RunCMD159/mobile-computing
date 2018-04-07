@@ -2,6 +2,7 @@
 <!-- Your UI components go here -->
 
 <StackLayout tkDrawerContent>
+    <Label [text]="'Gesamtsumme: ' + (cart?.totalSum | currency: '€ ': true)" ></Label>
     <ListView [items]="cart?.entries" class="list-group">
         <ng-template let-entry="item" let-i="index" let-odd="odd" let-even="even">
             <StackLayout class="list-group-item">
@@ -13,5 +14,4 @@
             </StackLayout>
         </ng-template>
     </ListView>
-    <Label class="h3 p-15" [text]="'Gesamtsumme: ' + (cart?.totalSum | currency: '€ ': true)" textWrap="true"></Label>
 </StackLayout>
