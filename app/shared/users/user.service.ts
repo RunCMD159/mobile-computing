@@ -15,13 +15,12 @@ export class UserService {
 
   register(user: User) {
     return this.backendService.post(
-        "user/" + Config.appKey,
-        JSON.stringify({
+        "/users",
+        {
             username: user.email,
             email: user.email,
             password: user.password
-        }),
-
+        }
     )
     .catch (this.handleErrors);
   }

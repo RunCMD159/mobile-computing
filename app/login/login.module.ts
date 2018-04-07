@@ -4,7 +4,7 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { SharedModule } from "../shared/shared.module";
 import { LoginComponent } from "./login.component";
 import { UserService } from "../shared/users/user.service";
-import {NativeScriptRouterModule} from "nativescript-angular";
+import {NativeScriptRouterModule, NativeScriptFormsModule} from "nativescript-angular";
 import {routes} from "../app-routing.module";
 
 @NgModule({
@@ -12,7 +12,8 @@ import {routes} from "../app-routing.module";
         NativeScriptCommonModule,
         SharedModule,
         NativeScriptRouterModule,
-        NativeScriptRouterModule.forRoot(routes)
+        NativeScriptRouterModule.forRoot(routes),
+        NativeScriptFormsModule
     ],
     declarations: [
         LoginComponent
