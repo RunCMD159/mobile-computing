@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Cart } from "../shared/cart/cart.model";
 import { CartEntry } from "../shared/cart-entry/cart-entry.model";
 import { Article } from "../shared/article/article.model";
+import { LocalStorageService } from "../shared/local-storage/local-storage.service";
 
 @Component({
   selector: "ns-overview",
@@ -13,21 +14,26 @@ export class ShoppingCartComponent {
 
   cart: Cart;
 
-  constructor() {
-    this.cart = new Cart();
-    let article1 = new Article();
-    article1.name = "Article1";
-    article1.price = 10.99;
-    let article2 = new Article();
-    article2.name = "Article2";
-    article2.price = 7.99;
-    let cartEntry1 = new CartEntry();
-    cartEntry1.quantity = 2;
-    cartEntry1.article = article1;
-    let cartEntry2 = new CartEntry();
-    cartEntry2.quantity = 4;
-    cartEntry2.article = article2;
-    this.cart.entries.push(cartEntry1, cartEntry2);
+  constructor(private localStorageService: LocalStorageService) {
+    this.cart = this.localStorageService.getItem('cart');
+    if (!this.cart) {
+      console.log('test');
+      this.cart = new Cart();
+      let article1 = new Article();
+      article1.name = "Article1";
+      article1.price = 10.99;
+      let article2 = new Article();
+      article2.name = "Article2";
+      article2.price = 7.99;
+      let cartEntry1 = new CartEntry();
+      cartEntry1.quantity = 2;
+      cartEntry1.article = article1;
+      let cartEntry2 = new CartEntry();
+      cartEntry2.quantity = 4;
+      cartEntry2.article = article2;
+      this.cart.entries.push(cartEntry1, cartEntry2);
+      this.localStorageService.setItem('cart', this.cart);
+    }
   }
 
   increaseQuantity(cartEntry: CartEntry) {
@@ -57,6 +63,7 @@ export class ShoppingCartComponent {
       totalSum += cartEntry.article.price * cartEntry.quantity;
     }
     cart.totalSum = totalSum;
+    this.localStorageService.setItem('cart', this.cart);
   }
 }
 
