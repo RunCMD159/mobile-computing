@@ -5,13 +5,15 @@ import {SharedModule} from "../shared/shared.module";
 import {ArticleDetailComponent} from "./article-detail.component";
 import {routes} from "../app-routing.module";
 import {NativeScriptRouterModule} from "nativescript-angular";
+import {CommonActionbarModule} from "../common-actionbar/common-actionbar.module";
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
         SharedModule,
         NativeScriptRouterModule,
-        NativeScriptRouterModule.forRoot(routes)
+        NativeScriptRouterModule.forRoot(routes),
+        CommonActionbarModule
     ],
     declarations: [
         ArticleDetailComponent

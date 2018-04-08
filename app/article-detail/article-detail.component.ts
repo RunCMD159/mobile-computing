@@ -2,9 +2,9 @@ import { Component } from "@angular/core";
 
 
 @Component({
-  selector: "ns-new-article",
-  templateUrl: "new-article/new-article.component.html",
-  styleUrls: ["new-article/new-article.component.css"]
+  selector: "ns-article-detail",
+  templateUrl: "article-detail/article-detail.component.html",
+  styleUrls: ["article-detail/article-detail.component.css"]
   
 })
 export class ArticleDetailComponent {

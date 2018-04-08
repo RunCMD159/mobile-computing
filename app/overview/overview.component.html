@@ -1,9 +1,8 @@
-<ActionBar title="Artikelübersicht" class="action-bar"></ActionBar>
+<common-actionbar title="Artikelübersicht" [newArticleEnabled]="true" [shoppingCartEnabled]="true"></common-actionbar>
+
 <!-- Your UI components go here -->
-<h1>this will be the overview</h1>
 <StackLayout tkDrawerContent>
     <Button [nsRouterLink]="['/article-detail']" text="GOTO Article detail"></Button>
     <Button [nsRouterLink]="['/shopping-cart']" text="GOTO Shopping cart"></Button>
     <Button [nsRouterLink]="['/new-article']" text="GOTO NEW ARTICLE"></Button>
-    <Button text = "BullshitButton" >BullshitButton</Button>
 </StackLayout>

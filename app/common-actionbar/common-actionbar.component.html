@@ -1,0 +1,8 @@
+<ActionBar [title]="title" class="action-bar">
+    <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="onNavBtnTap()"></NavigationButton>
+    <ActionItem *ngIf="newArticleEnabled" (tap)="onAddNewArticle()"
+                ios.systemIcon="4" ios.position="left"
+                android.systemIcon="ic_menu_add" android.position="actionBar"></ActionItem>
+    <ActionItem *ngIf="shoppingCartEnabled" (tap)="onGotoShoppingCart()"
+                ios.position="left" icon="res://shoppingcart" android.position="actionBar"></ActionItem>
+</ActionBar>
