@@ -6,6 +6,7 @@ import {NewArticleComponent} from "./new-article.component";
 import {routes} from "../app-routing.module";
 import {NativeScriptRouterModule} from "nativescript-angular";
 import {CommonActionbarModule} from "../common-actionbar/common-actionbar.module";
+import {NewArticleService} from "./new-article.service";
 
 @NgModule({
     imports: [
@@ -18,6 +19,7 @@ import {CommonActionbarModule} from "../common-actionbar/common-actionbar.module
     declarations: [
         NewArticleComponent
     ],
+    providers: [NewArticleService],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
