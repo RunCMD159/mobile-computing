@@ -6,6 +6,7 @@ import {OverviewComponent} from "./overview.component";
 import {routes} from "../app-routing.module";
 import {NativeScriptRouterModule} from "nativescript-angular";
 import {CommonActionbarModule} from "../common-actionbar/common-actionbar.module";
+import {OverviewService} from "./overview.service";
 
 @NgModule({
     imports: [
@@ -18,6 +19,7 @@ import {CommonActionbarModule} from "../common-actionbar/common-actionbar.module
     declarations: [
         OverviewComponent
     ],
+    providers: [OverviewService],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
