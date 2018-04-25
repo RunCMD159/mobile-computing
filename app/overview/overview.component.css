@@ -18,3 +18,11 @@ Button, TextField {
     color: white;
     margin-top: 20;
 }
+.product-text{
+    font-size: 12;
+    font-style:italic;
+}
+.product-item{
+    font-size: 12;
+    font-style:italic;
+}

@@ -13,6 +13,7 @@ export class OverviewComponent {
     products: Article[] = [];
 
     constructor(private overviewService: OverviewService) {
+        this.getAllProducts();
     }
 
     public getAllProducts() {

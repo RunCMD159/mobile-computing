@@ -5,4 +5,17 @@
     <Button [nsRouterLink]="['/article-detail']" text="GOTO Article detail"></Button>
     <Button [nsRouterLink]="['/shopping-cart']" text="GOTO Shopping cart"></Button>
     <Button [nsRouterLink]="['/new-article']" text="GOTO NEW ARTICLE"></Button>
+    <div *ngFor="let prod of products">
+        <p> hello</p>
+        <!--<div>
+            <h4 >ArticleName: {{prod.name}}</h4>
+          </div>
+        <div class="product-item">
+            <p class="product-text">ArticleName: {{prod.description}}</p>
+            <p class="product-text">Preis: {{prod.price}}</p>
+            <span>
+                <Button [nsRouterLink]="['/article-detail']" text="GOTO Article detail"></Button>
+            </span>
+        </div>-->
+    </div>
 </StackLayout>
