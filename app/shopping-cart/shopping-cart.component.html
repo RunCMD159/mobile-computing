@@ -3,13 +3,17 @@
     <Label [text]="'Gesamtsumme: ' + (cart?.totalSum | currency: '€ ': true)"></Label>
     <ListView [items]="cart?.entries" class="list-group">
         <ng-template let-entry="item" let-i="index" let-odd="odd" let-even="even">
-            <StackLayout class="list-group-item">
-                <Label [text]="entry.article.name"></Label>
-                <Label [text]="entry.article.price | currency: '€ ': true"></Label>
-                <Label [text]="'Anzahl: ' + entry.quantity"></Label>
-                <Button (tap)="increaseQuantity(entry)" text="+"></Button>
-                <Button (tap)="decreaseQuantity(entry)" text="-"></Button>
-            </StackLayout>
+            <DockLayout class="list-group-item">
+                <StackLayout dock="left" class="leftContainer">
+                    <Label [text]="entry.article.name"></Label>
+                    <Label [text]="entry.article.price | currency: '€ ': 'symbol'"></Label>
+                    <Label [text]="'Anzahl: ' + entry.quantity"></Label>
+                </StackLayout>
+                <StackLayout dock="right" class="rightContainer">
+                    <Button (tap)="increaseQuantity(entry)" text="+"></Button>
+                    <Button (tap)="decreaseQuantity(entry)" text="-"></Button>
+                </StackLayout>
+            </DockLayout>
         </ng-template>
     </ListView>
 </StackLayout>
