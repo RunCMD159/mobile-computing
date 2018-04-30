@@ -14,6 +14,14 @@ export class ArticleDetailComponent {
     article: Article;
 
     constructor(private articleDetailService: ArticleDetailService) {
+        //let a = this.articleDetailService.getArticleById()
+
+        this.article = new Article();
+        this.article.name = "Artikel 1";
+        //this.article.description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem";
+        this.article.description = "Lorem ipsum dolor ";
+        this.article.price = 3.333;
+        this.article.image = "https://www.google.com/images/errors/logo_sm_2.png";
 
     }
 

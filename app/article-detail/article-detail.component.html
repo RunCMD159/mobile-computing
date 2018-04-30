@@ -1,5 +1,11 @@
 <common-actionbar title="Artikel Details" [newArticleEnabled]="true" [shoppingCartEnabled]="true"></common-actionbar>
 <StackLayout tkDrawerContent>
+    <Label text="Name" class="header"></Label>
+    <Label text="{{article.name}}" class="data"></Label>
+    <Label text="Beschreibung" class="header" ></Label>
+    <Label text="{{article.description}}" class="data"></Label>
+    <Label text="Preis: {{article.price | currency:'EUR':true}}" class="price"></Label>
+    <Image src="{{article.image}}"></Image>
     <Button [nsRouterLink]="['/overview']" text="GOTO OVERVIEW"></Button>
 
 </StackLayout>
