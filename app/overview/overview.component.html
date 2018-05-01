@@ -11,9 +11,9 @@
         <ng-template let-entry="item" let-i="index" let-odd="odd" let-even="even">
             <DockLayout class="list-group-item">
              <StackLayout [class.odd]="odd" [class.even]="even">
-                <Label [text]="entry?.name"></Label>
+                <Label [text]="entry?.name "></Label>
                 <Label [text]="entry?.price | currency: '€ ': 'symbol'"></Label>
-            </StackLayout>
+             </StackLayout>
         </DockLayout>
         </ng-template>
     </ListView>
