@@ -15,3 +15,10 @@ dist
 *.ipr
 /out/
 .idea_modules/
+app/new-article/*.js
+app/article-detail/*.js
+app/common-actionbar/*.js
+app/login/*.js
+app/overview/*.js
+app/shared/*.js
+app/shopping-cart/*.js

@@ -7,7 +7,7 @@ import {Component, Input, ChangeDetectionStrategy} from '@angular/core';
     selector: "ns-overview",
     templateUrl: "overview/overview.component.html",
     styleUrls: ["overview/overview.component.css"],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export class OverviewComponent {
 
