@@ -7,6 +7,7 @@ import {routes} from "../app-routing.module";
 import {NativeScriptRouterModule} from "nativescript-angular";
 import {CommonActionbarModule} from "../common-actionbar/common-actionbar.module";
 import {OverviewService} from "./overview.service";
+import * as LabelModule from "tns-core-modules/ui/label";
 
 @NgModule({
     imports: [

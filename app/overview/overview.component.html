@@ -2,20 +2,19 @@
 
 <!-- Your UI components go here -->
 <StackLayout tkDrawerContent>
+    <Button>Willkommen im Shop</Button>
     <Button [nsRouterLink]="['/article-detail']" text="GOTO Article detail"></Button>
     <Button [nsRouterLink]="['/shopping-cart']" text="GOTO Shopping cart"></Button>
     <Button [nsRouterLink]="['/new-article']" text="GOTO NEW ARTICLE"></Button>
-    <div *ngFor="let prod of products">
-        <p> hello</p>
-        <!--<div>
-            <h4 >ArticleName: {{prod.name}}</h4>
-          </div>
-        <div class="product-item">
-            <p class="product-text">ArticleName: {{prod.description}}</p>
-            <p class="product-text">Preis: {{prod.price}}</p>
-            <span>
-                <Button [nsRouterLink]="['/article-detail']" text="GOTO Article detail"></Button>
-            </span>
-        </div>-->
-    </div>
+
+    <ListView [items]="products" (itemTap)="onItemTap($event)">
+        <ng-template let-entry="item" let-i="index" let-odd="odd" let-even="even">
+            <DockLayout class="list-group-item">
+             <StackLayout [class.odd]="odd" [class.even]="even">
+                <Label [text]="entry?.name"></Label>
+                <Label [text]="entry?.price | currency: '€ ': 'symbol'"></Label>
+            </StackLayout>
+        </DockLayout>
+        </ng-template>
+    </ListView>
 </StackLayout>

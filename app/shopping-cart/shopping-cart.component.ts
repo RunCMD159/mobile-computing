@@ -19,12 +19,9 @@ export class ShoppingCartComponent {
     if (!this.cart) {
       console.log('test');
       this.cart = new Cart();
-      let article1 = new Article();
-      article1.name = "Article1";
-      article1.price = 10.99;
-      let article2 = new Article();
-      article2.name = "Article2";
-      article2.price = 7.99;
+      let article1 = new Article("Article1","",10.99,"");
+
+      let article2 = new Article("Article2","",7.99,"");
       let cartEntry1 = new CartEntry();
       cartEntry1.quantity = 2;
       cartEntry1.article = article1;

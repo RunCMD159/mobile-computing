@@ -9,6 +9,7 @@ export class OverviewService {
     }
 
     public getAllProducts() {
+        console.log("getAllProducts");
         return this.backend.get('products');
     }
 }
