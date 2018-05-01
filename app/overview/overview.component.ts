@@ -8,8 +8,6 @@ import {Component, Input, ChangeDetectionStrategy} from '@angular/core';
     templateUrl: "overview/overview.component.html",
     styleUrls: ["overview/overview.component.css"],
     changeDetection: ChangeDetectionStrategy.OnPush
-
-
 })
 export class OverviewComponent {
 
