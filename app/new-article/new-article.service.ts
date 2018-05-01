@@ -10,11 +10,7 @@ export class NewArticleService {
     }
 
     public createNewArticle(name: string, desc: string, price: number, image: string): Observable<Article> {
-        let article = new Article();
-        article.name = name;
-        article.description = desc;
-        article.price = price;
-        article.image = image;
+        let article = new Article(name,desc,price,image);
         return this.backend.post('product', article);
     }
 }
