@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {RouterExtensions} from "nativescript-angular";
-import {EventData, Observable} from "data/observable";
+import { Component, Input, OnInit } from '@angular/core';
+import { RouterExtensions } from "nativescript-angular";
+import { EventData } from "data/observable";
+import { LocalStorageService } from '../shared/local-storage/local-storage.service';
 
 
 @Component({
@@ -14,21 +15,28 @@ export class CommonActionbarComponent implements OnInit {
     @Input() shoppingCartEnabled: boolean;
     @Input() newArticleEnabled: boolean;
 
-    constructor(private routerExtensions: RouterExtensions) {
+    constructor(private routerExtensions: RouterExtensions,
+                private localStorage: LocalStorageService) {
     }
 
     ngOnInit() {
     }
 
-    onAddNewArticle(args: EventData) {
+    onAddNewArticle() {
         this.routerExtensions.navigate(["/new-article"]);
     }
 
-    onGotoShoppingCart(args: EventData) {
+    onGotoShoppingCart() {
         this.routerExtensions.navigate(["/shopping-cart"]);
     }
 
     onNavBtnTap() {
         this.routerExtensions.back();
+    }
+
+    logout() {
+        this.localStorage.setItem('user', null);
+        this.localStorage.setItem('cart', null);
+        this.routerExtensions.navigate(["/login"]);
     }
 }

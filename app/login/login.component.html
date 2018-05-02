@@ -3,10 +3,9 @@
 
 <StackLayout tkDrawerContent>
 
-    <TextField hint="Email Adwesse" [(ngModel)]="user.email" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
-    <TextField hint="Passwowd" [(ngModel)]="user.password" secure="true"></TextField>
+    <TextField hint="Email Adresse" [(ngModel)]="user.email" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
+    <TextField hint="Password" [(ngModel)]="user.password" secure="true"></TextField>
 
     <Button [text]="isLoggingIn ? 'Sign in' : 'Sign up'" class="submit-button" (tap)="submit()"></Button>
     <Button [text]="isLoggingIn ? 'Sign up' : 'Back to login'" (tap)="toggleDisplay()"></Button>
-    <Button [nsRouterLink]="['/overview']"[text]="'GOTO OVERVIEW'"></Button>
 </StackLayout>
