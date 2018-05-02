@@ -1,6 +1,6 @@
 import { Article } from "../shared/article/article.model";
 import { OverviewService } from "./overview.service";
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular';
 
 
@@ -22,6 +22,7 @@ export class OverviewComponent {
     ngOnInit() {
         console.log("Constructor OverviewComponent ");
         this.getAllProducts();
+
     }
 
     public getAllProducts() {

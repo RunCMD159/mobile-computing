@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { NewArticleService } from "./new-article.service";
 import { Article } from "../shared/article/article.model";
+import { RouterExtensions } from 'nativescript-angular';
 
 
 @Component({
@@ -17,17 +18,21 @@ export class NewArticleComponent {
 
     createdArticle: Article;
 
-    constructor(private newArticleService: NewArticleService) {
+    constructor(private newArticleService: NewArticleService,
+                private routerExtensions: RouterExtensions) {
 
     }
 
 
     public createNewArticle(name, description, price, image) {
-        let newArticle = new Article(name, description, price, image);
-        console.log(newArticle);
+        let newArticle = new Article();
+        newArticle.name = name;
+        newArticle.description = description;
+        newArticle.price = price;
+        newArticle.image = image;
         this.newArticleService.createNewArticle(newArticle).subscribe((newArticle) => {
             this.createdArticle = newArticle;
-            console.log(newArticle.name)
+            this.routerExtensions.navigate(["/overview"]);
         }, (error) => {
             console.error("ERROR")
         })
