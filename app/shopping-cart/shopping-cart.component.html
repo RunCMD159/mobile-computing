@@ -1,6 +1,8 @@
 <common-actionbar title="Warenkorb" [newArticleEnabled]="true"></common-actionbar>
 <StackLayout tkDrawerContent>
-    <Label [text]="'Gesamtsumme: ' + (cart?.totalSum | currency: '€ ': true)"></Label>
+    <StackLayout class="upper-container">
+            <Label [text]="'Gesamtsumme: ' + (cart?.totalSum | currency: '€ ': true)" class="price"></Label>
+    </StackLayout>
     <ListView [items]="cart?.entries" class="list-group">
         <ng-template let-entry="item" let-i="index" let-odd="odd" let-even="even">
             <DockLayout class="list-group-item">
