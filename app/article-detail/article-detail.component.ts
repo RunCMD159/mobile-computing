@@ -1,6 +1,8 @@
-import {Component} from "@angular/core";
-import {ArticleDetailService} from "./article-detail.service";
-import {Article} from "../shared/article/article.model";
+import { Component } from "@angular/core";
+import { ArticleDetailService } from "./article-detail.service";
+import { Article } from "../shared/article/article.model";
+import { PageRoute } from 'nativescript-angular';
+import { switchMap } from 'rxjs/operators';
 
 
 @Component({
@@ -12,17 +14,20 @@ import {Article} from "../shared/article/article.model";
 export class ArticleDetailComponent {
 
     article: Article;
+    id: string;
 
-    constructor(private articleDetailService: ArticleDetailService) {
-
+    constructor(private articleDetailService: ArticleDetailService,
+                private pageRoute: PageRoute) {
+        this.pageRoute.activatedRoute.pipe(
+            switchMap(activatedRoute => activatedRoute.params)
+        ).forEach((params) => {
+            this.id = params["id"];
+            this.articleDetailService.getArticleById(this.id).subscribe((article) => {
+                this.article = article;
+            })
+        });
     }
 
-    public getArticleDetails() {
-        //TODO: request by real id
-        this.articleDetailService.getArticleById('').subscribe((article) => {
-            this.article = article;
-        })
-    }
 
 }
 

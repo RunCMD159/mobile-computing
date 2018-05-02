@@ -1,5 +1,15 @@
 <common-actionbar title="Artikel Details" [newArticleEnabled]="true" [shoppingCartEnabled]="true"></common-actionbar>
 <StackLayout tkDrawerContent>
-    <Button [nsRouterLink]="['/overview']" text="GOTO OVERVIEW"></Button>
-
+    <StackLayout orientation="horizontal">
+        <Label text="Artikelname"></Label>
+        <Label [text]=article?.name></Label>
+    </StackLayout>
+    <StackLayout orientation="horizontal">
+        <Label text="Beschreibung"></Label>
+        <Label [text]=article?.description></Label>
+    </StackLayout>
+    <StackLayout orientation="horizontal">
+        <Label text="Preis pro Stück"></Label>
+        <Label [text]=article?.price></Label>
+    </StackLayout>
 </StackLayout>

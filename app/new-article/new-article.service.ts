@@ -10,6 +10,6 @@ export class NewArticleService {
     }
 
     public createNewArticle(newArticle: Article): Observable<Article> {
-        return this.backend.post('product', newArticle);
+        return this.backend.post('products', newArticle);
     }
 }
