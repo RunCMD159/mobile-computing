@@ -23,6 +23,12 @@ export class ShoppingCartComponent {
     increaseQuantity(cartEntry: CartEntry) {
         cartEntry.quantity++;
         this.calculateTotalPrice(this.cart);
+        this.saveToLocalStorage()
+    }
+
+
+    private saveToLocalStorage() {
+        this.localStorageService.setItem('cart', this.cart);
     }
 
     decreaseQuantity(cartEntry: CartEntry) {
@@ -32,6 +38,7 @@ export class ShoppingCartComponent {
             cartEntry.quantity--;
         }
         this.calculateTotalPrice(this.cart);
+        this.saveToLocalStorage();
     }
 
     removeFromCart(cart, cartEntry) {
@@ -39,6 +46,7 @@ export class ShoppingCartComponent {
         if (removeIndex >= 0) {
             cart.entries.splice(removeIndex, 1);
         }
+        this.saveToLocalStorage()
     }
 
     calculateTotalPrice(cart) {
@@ -47,7 +55,7 @@ export class ShoppingCartComponent {
             totalSum += cartEntry.article.price * cartEntry.quantity;
         }
         cart.totalSum = totalSum;
-        this.localStorageService.setItem('cart', this.cart);
+        this.saveToLocalStorage();
     }
 }
 
