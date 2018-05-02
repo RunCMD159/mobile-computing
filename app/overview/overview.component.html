@@ -11,9 +11,11 @@
         <ng-template let-entry="item" let-i="index" let-odd="odd" let-even="even">
             <DockLayout class="list-group-item">
                 <StackLayout [class.odd]="odd" [class.even]="even">
-                    <Label [text]="entry?.name "></Label>
+                    <Label [text]="entry?.name " class="itemheader"></Label>
                     <Label [text]="entry?.price | currency: '€ ': 'symbol'"></Label>
-                    <Button text="+" (tap)="addToShoppingCart(entry)"></Button>
+                    <Image [src]="entry.image"></Image>
+                    <Button text="hinzufügen" (tap)="addToShoppingCart(entry)" class="cartbutton">
+                    </Button>
                 </StackLayout>
             </DockLayout>
         </ng-template>
