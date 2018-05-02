@@ -13,6 +13,7 @@
                 <StackLayout [class.odd]="odd" [class.even]="even">
                     <Label [text]="entry?.name "></Label>
                     <Label [text]="entry?.price | currency: '€ ': 'symbol'"></Label>
+                    <Button text="+" (tap)="addToShoppingCart(entry)"></Button>
                 </StackLayout>
             </DockLayout>
         </ng-template>

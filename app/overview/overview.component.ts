@@ -1,7 +1,8 @@
 import { Article } from "../shared/article/article.model";
 import { OverviewService } from "./overview.service";
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular';
+import { ShoppingCartService } from '../shared/cart/shopping-cart.service';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class OverviewComponent {
     products: Article[] = [];
 
     constructor(private overviewService: OverviewService,
-                private routerExtensions: RouterExtensions) {
+                private routerExtensions: RouterExtensions,
+                private shoppingCartService: ShoppingCartService) {
 
     }
 
@@ -47,6 +49,11 @@ export class OverviewComponent {
         console.log(tappedArticle.id);
         this.routerExtensions.navigate(["/article-detail", tappedArticle.id]);
         console.log("------------------------- ItemTapped: " + args.index);
+    }
+
+    public addToShoppingCart(cartArticle: Article) {
+        console.log(cartArticle.name);
+        this.shoppingCartService.addCartEntries(cartArticle);
     }
 }
 
