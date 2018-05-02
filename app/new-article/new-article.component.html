@@ -1,8 +1,22 @@
 <common-actionbar title="Neuer Artikel" [shoppingCartEnabled]="true"></common-actionbar>
-<StackLayout tkDrawerContent>
-  
-    <Image src="~/images/mario.jpg"></Image>
-    <Label id="Label1" text="Hier is Schluss"></Label>
+<StackLayout tkDrawerContent class="input-field">
 
-    <Button [nsRouterLink]="['/overview']" text="GOTO OVERVIEW"></Button>
+    <StackLayout>
+        <Label text="Artikelname" textWrap="true"></Label>
+        <TextField #articleName hint="Enter article name"></TextField>
+    </StackLayout>
+    <StackLayout>
+        <Label text="Beschreibung"></Label>
+        <TextField #articleDescription hint="Enter article description"></TextField>
+    </StackLayout>
+    <StackLayout>
+        <Label text="Preis"></Label>
+        <TextField #articlePrice hint="Enter article price"></TextField>
+    </StackLayout>
+    <StackLayout>
+        <Label text="Bild URL"></Label>
+        <TextField #imageUrl hint="Enter article image url"></TextField>
+    </StackLayout>
+    <Button (tap)="createNewArticle(articleName.text,articleDescription.text,articlePrice.text,imageUrl.text)"
+            text="Artikel anlegen"></Button>
 </StackLayout>

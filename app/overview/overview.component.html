@@ -2,10 +2,10 @@
 
 <!-- Your UI components go here -->
 <StackLayout tkDrawerContent>
-    <Button>Willkommen im Shop</Button>
-    <Button [nsRouterLink]="['/article-detail']" text="GOTO Article detail"></Button>
-    <Button [nsRouterLink]="['/shopping-cart']" text="GOTO Shopping cart"></Button>
-    <Button [nsRouterLink]="['/new-article']" text="GOTO NEW ARTICLE"></Button>
+    <!--<Button>Willkommen im Shop</Button>-->
+    <!--<Button [nsRouterLink]="['/article-detail']" text="GOTO Article detail"></Button>-->
+    <!--<Button [nsRouterLink]="['/shopping-cart']" text="GOTO Shopping cart"></Button>-->
+    <!--<Button [nsRouterLink]="['/new-article']" text="GOTO NEW ARTICLE"></Button>-->
 
     <ListView [items]="products" (itemTap)="onItemTap($event)">
         <ng-template let-entry="item" let-i="index" let-odd="odd" let-even="even">

@@ -1,6 +1,6 @@
-import {Component} from "@angular/core";
-import {NewArticleService} from "./new-article.service";
-import {Article} from "../shared/article/article.model";
+import { Component } from "@angular/core";
+import { NewArticleService } from "./new-article.service";
+import { Article } from "../shared/article/article.model";
 
 
 @Component({
@@ -22,11 +22,15 @@ export class NewArticleComponent {
     }
 
 
-    public createNewArticle() {
-        //TODO: fill params
-        // this.newArticleService.createNewArticle().subscribe((newArticle) => {
-        //     this.createdArticle = newArticle;
-        // })
+    public createNewArticle(name, description, price, image) {
+        let newArticle = new Article(name, description, price, image);
+        console.log(newArticle);
+        this.newArticleService.createNewArticle(newArticle).subscribe((newArticle) => {
+            this.createdArticle = newArticle;
+            console.log(newArticle.name)
+        }, (error) => {
+            console.error("ERROR")
+        })
     }
 
 }
