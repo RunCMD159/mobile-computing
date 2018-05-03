@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterExtensions } from "nativescript-angular";
-import { EventData } from "data/observable";
 import { LocalStorageService } from '../shared/local-storage/local-storage.service';
 
 
@@ -14,6 +13,7 @@ export class CommonActionbarComponent implements OnInit {
     @Input() title: string;
     @Input() shoppingCartEnabled: boolean;
     @Input() newArticleEnabled: boolean;
+    @Input() backEnabled: boolean = true;
 
     constructor(private routerExtensions: RouterExtensions,
                 private localStorage: LocalStorageService) {

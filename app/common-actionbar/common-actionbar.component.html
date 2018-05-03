@@ -1,5 +1,5 @@
 <ActionBar [title]="title" class="action-bar">
-    <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="onNavBtnTap()"></NavigationButton>
+    <NavigationButton *ngIf="backEnabled" text="Go Back" android.systemIcon="ic_menu_back" (tap)="onNavBtnTap()"></NavigationButton>
 
     <ActionItem (tap)="logout()"
                 ios.systemIcon="0" ios.position="left"
