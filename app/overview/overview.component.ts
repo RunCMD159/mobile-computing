@@ -44,11 +44,11 @@ export class OverviewComponent {
             });
     }
 
-    public onItemTap(args) {
-        let tappedArticle = this.products[args.index];
+    public onItemTap(index) {
+        let tappedArticle = this.products[index];
         console.log(tappedArticle.id);
         this.routerExtensions.navigate(["/article-detail", tappedArticle.id]);
-        console.log("------------------------- ItemTapped: " + args.index);
+        console.log("------------------------- ItemTapped: " + index);
     }
 
     public addToShoppingCart(cartArticle: Article) {
