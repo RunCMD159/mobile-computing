@@ -9,7 +9,7 @@
                 <StackLayout dock="left" class="leftContainer">
                     <Label [text]="entry.article.name"></Label>
                     <Label [text]="entry.article.price | currency: '€ ': 'symbol'"></Label>
-                    <Label [text]="'Anzahl: ' + entry.quantity"></Label>
+                    <Label [text]="entry.quantity"></Label>
                 </StackLayout>
                 <StackLayout dock="right" class="rightContainer">
                     <Button (tap)="increaseQuantity(entry)" text="+"></Button>
