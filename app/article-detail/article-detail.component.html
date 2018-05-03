@@ -1,15 +1,23 @@
 <common-actionbar title="Artikel Details" [newArticleEnabled]="true" [shoppingCartEnabled]="true"></common-actionbar>
 <StackLayout tkDrawerContent>
     <StackLayout orientation="horizontal">
-        <Label text="Artikelname"></Label>
-        <Label [text]=article?.name></Label>
+        <!--Label text="Artikelname" class="itemheader"></Label-->
+        <Label [text]=article?.name class="itemheader"></Label>
     </StackLayout>
     <StackLayout orientation="horizontal">
-        <Label text="Beschreibung"></Label>
-        <Label [text]=article?.description></Label>
+        <!--Label text="Beschreibung" class="lable"></Label-->
+        <Label [text]="article?.description" class="description"></Label>
     </StackLayout>
     <StackLayout orientation="horizontal">
-        <Label text="Preis pro Stück"></Label>
-        <Label [text]=article?.price></Label>
+        
+        <!--Label text="Preis pro Stück" class="lable"></Label-->
+        <Label [text]="article?.price | currency: '€ ': 'symbol'" class="price"></Label>
+        <Button text="hinzufügen" (tap)="addToShoppingCart()" class="cartbutton"></Button>
+        
+    </StackLayout>
+    <StackLayout orientation="vertical">
+        <Label text="Produktbilder" class="h3"></Label>
+        <vr></vr>
+        <Image [src]="article?.image"></Image>
     </StackLayout>
 </StackLayout>

@@ -3,6 +3,7 @@ import { ArticleDetailService } from "./article-detail.service";
 import { Article } from "../shared/article/article.model";
 import { PageRoute } from 'nativescript-angular';
 import { switchMap } from 'rxjs/operators';
+import { ShoppingCartService } from "../shared/cart/shopping-cart.service";
 
 
 @Component({
@@ -17,7 +18,8 @@ export class ArticleDetailComponent {
     id: string;
 
     constructor(private articleDetailService: ArticleDetailService,
-                private pageRoute: PageRoute) {
+                private pageRoute: PageRoute,
+                private shoppingCartService: ShoppingCartService) {
         this.pageRoute.activatedRoute.pipe(
             switchMap(activatedRoute => activatedRoute.params)
         ).forEach((params) => {
@@ -26,6 +28,11 @@ export class ArticleDetailComponent {
                 this.article = article;
             })
         });
+    }
+
+    public addToShoppingCart() {
+        
+        this.shoppingCartService.addCartEntries(this.article);
     }
 
 
