@@ -7,7 +7,7 @@
         <ng-template let-entry="item" let-i="index" let-odd="odd" let-even="even">
             <DockLayout class="list-group-item">
                 <StackLayout dock="left" class="leftContainer">
-                    <Label [text]="entry.article.name"></Label>
+                    <Label [text]="entry.article.name" textWrap="true"></Label>
                     <Label [text]="entry.article.price | currency: '€ ': 'symbol'"></Label>
                     <Label [text]="entry.quantity"></Label>
                 </StackLayout>

@@ -4,14 +4,9 @@
 
 <!-- Your UI components go here -->
 <StackLayout tkDrawerContent>
-    <!--<Button>Willkommen im Shop</Button>-->
-    <!--<Button [nsRouterLink]="['/article-detail']" text="GOTO Article detail"></Button>-->
-    <!--<Button [nsRouterLink]="['/shopping-cart']" text="GOTO Shopping cart"></Button>-->
-    <!--<Button [nsRouterLink]="['/new-article']" text="GOTO NEW ARTICLE"></Button>-->
-
-    <ListView [items]="products" (itemTap)="onItemTap($event)">
+    <ListView [items]="products">
         <ng-template let-entry="item" let-i="index" let-odd="odd" let-even="even">
-            <DockLayout class="list-group-item">
+            <DockLayout class="list-group-item" (tap)="onItemTap(i)">
                 <StackLayout [class.odd]="odd" [class.even]="even">
                     <Label [text]="entry?.name " class="itemheader"></Label>
                     <Label [text]="entry?.price | currency: '€ ': 'symbol'"></Label>
