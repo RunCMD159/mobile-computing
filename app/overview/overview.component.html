@@ -10,7 +10,6 @@
                 <StackLayout [class.odd]="odd" [class.even]="even">
                     <Label [text]="entry?.name " class="itemheader"></Label>
                     <Label [text]="entry?.price | currency: '€ ': 'symbol'"></Label>
-                    <Image [src]="entry.image"></Image>
                     <Button text="hinzufügen" (tap)="addToShoppingCart(entry)" class="cartbutton">
                     </Button>
                 </StackLayout>
